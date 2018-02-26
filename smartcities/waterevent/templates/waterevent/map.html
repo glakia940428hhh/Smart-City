@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+      <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+   <!--navigation -->
+   <div>
+        <h3>
+           <ul class="nav nav-tabs nav-center">
+               <li><a href="{% url 'waterevent:index' %}">Home</a></li>
+               <li class="dropdown">
+                   <a href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Pipe<span class="caret"></span></a>
+                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                       <li role="presentation"><a href="{% url 'waterevent:pipelist' %}">Pipe</a></li>
+                       <li role="presentation"><a href="{% url 'waterevent:sensorlist' %}">Sensor</a></li>
+                   </ul>
+               </li>
+               <li class="dropdown">
+                   <a href="#" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Report<span class="caret"></span></a>
+                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                       <li><a href="{% url 'waterevent:eventlist' %}">Event Report</a></li>
+                       <li><a href="{% url 'waterevent:reportlist' %}">Observation Report</a></li>
+                   </ul>
+               </li>
+
+               <li><a href="{% url 'waterevent:map' %}">Map</a></li>
+               <li class="dropdown">
+                   <a href="#" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Location<span class="caret"></span></a>
+                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                       <li role="presentation"><a href="{% url 'waterevent:locationlist' %}">Location</a></li>
+                       <li role="presentation">  <a href="{% url 'waterevent:regionlist' %}">Region</a></li>
+                   </ul>
+               </li>
+               <li><a href="{% url 'waterevent:integrationlist' %}">Integration</a></li>
+                <li><a href='http://smartcity2-app.34pgt7dzwk.us-west-2.elasticbeanstalk.com/watershed/'> Watershed System </a></li>
+
+           </ul>
+        </h3>
+   </div>
+
+     <p></p>
+
+ <!--Map -->
+      <div style="width: 100%; height: 100%;" class="col-xs-12 col-sm-12 col-md-12 col-lg-5">
+            <style>.embed-container {position: relative; padding-bottom: 80%; height: 0; max-width: 100%;} .embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;} small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}</style><div class="embed-container"><iframe width="10000" height="10000" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="smartcities pipe" src="//smartciti.maps.arcgis.com/apps/Embed/index.html?webmap=ed86faa50876440880b2c40aa54b6c77&amp;extent=-98.3617,26.0435,-97.9827,26.2571&amp;zoom=true&amp;scale=true&amp;disable_scroll=true&amp;theme=light"></iframe></div>
+        </div>
+
+</body>
+</html>

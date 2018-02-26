@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <title>Login Page</title>
+
+      <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+
+   <div style="background-image: url('http://www.news1130.com/wp-content/blogs.dir/sites/9/2016/11/29/pipelines-3-e1480465756659.jpg'); background-size: cover;" class="jumbotron text-center">
+        <br><br><h1 style="text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;"> <strong>Report</strong></h1>
+       <h1 style="text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;"> <strong>List of Report</strong></h1>
+   </div>
+
+   <!--navigation -->
+   <div>
+        <h3>
+           <ul class="nav nav-tabs nav-center">
+               <li><a href="{% url 'waterevent:index' %}">Home</a></li>
+               <li class="dropdown">
+                   <a href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Pipe<span class="caret"></span></a>
+                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                       <li role="presentation"><a href="{% url 'waterevent:pipelist' %}">Pipe</a></li>
+                       <li role="presentation"><a href="{% url 'waterevent:sensorlist' %}">Sensor</a></li>
+                   </ul>
+               </li>
+               <li class="dropdown">
+                   <a href="#" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Report<span class="caret"></span></a>
+                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                       <li><a href="{% url 'waterevent:eventlist' %}">Event Report</a></li>
+                       <li><a href="{% url 'waterevent:reportlist' %}">Observation Report</a></li>
+                   </ul>
+               </li>
+
+               <li><a href="{% url 'waterevent:map' %}">Map</a></li>
+               <li class="dropdown">
+                   <a href="#" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Location<span class="caret"></span></a>
+                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                       <li role="presentation"><a href="{% url 'waterevent:locationlist' %}">Location</a></li>
+                       <li role="presentation">  <a href="{% url 'waterevent:regionlist' %}">Region</a></li>
+                   </ul>
+               </li>
+               <li><a href="{% url 'waterevent:integrationlist' %}">Integration</a></li>
+                <li><a href='http://smartcity2-app.34pgt7dzwk.us-west-2.elasticbeanstalk.com/watershed/'> Watershed System </a></li>
+
+           </ul>
+        </h3>
+   </div>
+
+     <p></p>
+
+    <div class="container-fluid text-center">
+
+        <div class="list-group">
+
+        {% for x in report %}
+            <form method="post" action="{% url 'waterevent:report_detail' %}">
+                {% csrf_token %}
+                <input type='hidden' name="tag" value="{{ x.observId }}" />
+            <button type ="submit" class="list-group-item list-group-item-success col-sm-8">
+                <center> <b>Observation Name: </b> {{x.observName}} &nbsp;&nbsp;&nbsp;&nbsp;       <b>Date: </b>{{x.date}}</center> </button>
+            <!--- update -->
+            <a href="{% url 'waterevent:report_detail-update' x.observId %}" class="btn btn-primary" role="button" aria-pressed="true"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>Update Report</a>
+            <div class="col-xs-12"><hr></div>
+            <p></p>
+                </form>
+        {% endfor %}
+        </div>
+<!--    <a href="{% url 'waterevent:index' %}" class="btn btn-primary btn-lg active btn-block" role="button" aria-pressed="true">Home Page </a> -->
+<!-- button for adding report -->
+   <a href="{% url 'waterevent:add-report' %}" class="btn btn-success" role="button">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    Add observation report</a>
+        <br>
+        <br>
+
+    </div>
+
+</body>
+</html>

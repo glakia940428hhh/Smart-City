@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+
+      <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        .a{
+
+        background-color:  	#E6E6FA;
+        }
+
+    </style>
+</head>
+<body>
+   <div style="background-image: url('http://www.news1130.com/wp-content/blogs.dir/sites/9/2016/11/29/pipelines-3-e1480465756659.jpg'); background-size: cover;" class="jumbotron text-center">
+        <br><br><h1 style="text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;"> <strong>Storm Water</strong></h1>
+       <h1 style="text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;"> <strong>Management System</strong></h1>
+   </div>
+
+   <!--navigation -->
+   <div>
+        <h3>
+           <ul class="nav nav-tabs nav-center">
+               <li><a href="{% url 'waterevent:index' %}">Home</a></li>
+               <li class="dropdown">
+                   <a href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Pipe<span class="caret"></span></a>
+                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                       <li role="presentation"><a href="{% url 'waterevent:pipelist' %}">Pipe</a></li>
+                       <li role="presentation"><a href="{% url 'waterevent:sensorlist' %}">Sensor</a></li>
+                   </ul>
+               </li>
+               <li class="dropdown">
+                   <a href="#" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Report<span class="caret"></span></a>
+                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                       <li><a href="{% url 'waterevent:eventlist' %}">Event Report</a></li>
+                       <li><a href="{% url 'waterevent:reportlist' %}">Observation Report</a></li>
+                   </ul>
+               </li>
+
+               <li><a href="{% url 'waterevent:map' %}">Map</a></li>
+               <li class="dropdown">
+                   <a href="#" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Location<span class="caret"></span></a>
+                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                       <li role="presentation"><a href="{% url 'waterevent:locationlist' %}">Location</a></li>
+                       <li role="presentation">  <a href="{% url 'waterevent:regionlist' %}">Region</a></li>
+                   </ul>
+               </li>
+               <li><a href="{% url 'waterevent:integrationlist' %}">Integration</a></li>
+                <li><a href='http://smartcity2-app.34pgt7dzwk.us-west-2.elasticbeanstalk.com/watershed/'> Watershed System </a></li>
+
+           </ul>
+        </h3>
+   </div>
+
+   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8" align="left">
+       <h4>
+           <br><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;In an era of IoT and smart cities, Storm-Water Management System is a modern arrangement to help the government manage, inspect and update the underground pipeline and sewage system as well as prevent potential hazardous situations arising due to flooding, heavy rains, impurities in water and so on. This is done by maintaining a record of the network of pipes, a record of dynamic multi-sensor readings and events.
+          <br><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;Additionally, the web-mapping functionality through ArcGIS provides an overview of the entire pipe framework in various locations along with the details of each pipe. This, map can also visualize the changes made based on the system database.
+          <br><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;Storm-water management can provide economic benefits to local communities as well. Proper management can result in early detection and consequently reduce costs and/or fees that might occur due to of adverse impact to pipes, water quality, property damage and loss of life created by increased storm-water runoff. The integration with watershed management system allows us to easily determine the watershed each specific pipe is connected to.
+       </h4>
+   </div>
+
+   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+<br><br>
+<img src="http://www.cubicsol.com/wp-content/uploads/2016/06/iot-0ver-1520-1024x576-960x720.jpg" style="width:400px;height:270px;">
+   </div>
+
+
+
+   <!--- footer -->
+   <div align="center" class="a">
+       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 a">
+           <h4><b>Smart City Team 1</b></h4>
+           <h4>Team Member</h4>
+           Jinali Gandhi&nbsp;&nbsp;Lu Gan&nbsp;&nbsp;Luke Gregerson<br>
+           Spoorthi Gunuganti&nbsp;&nbsp;Tianqi Tian&nbsp;&nbsp;Yasho Vardhan
+       </div>
+
+
+
+
+   </div>
+
+
+
+</body>
+</html>
